@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<main class="container">
+    <h1>Sign In</h1>
+    <form th:action="@{/login}" method="post">
+        <input type="text" name="username" class="form-control" placeholder="UserName"><br>
+        <input type="password" name="password" class="form-control" placeholder="Password"><br>
+        <input type="submit" value="Sign In" class="btn btn-light"/>
+    </form>
+</main>
+<footer th:replace="blocks/foooter :: footer"></footer>
+</body>
+</html>

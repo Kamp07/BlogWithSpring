@@ -1,0 +1,22 @@
+<div  xmlns:sec= "http://www.thymeleaf.org/extras/spring-security" th:fragment="header">
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="fs-4">Kampot_Blog</span>
+    </a>
+
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/">Home</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/about">About Us</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/reviews">Reviews</a>
+    </nav>
+    <div sec:authorize="!isFullyAuthenticated()">
+        <a th:href="@{/reg}" class="btn btn-success" >Registration</a>
+        <a th:href="@{/login}" class="btn btn-warning">Sign In</a>
+    </div>
+    <div sec:authorize="isFullyAuthenticated()">
+        <form  th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+</div>
+</div>
